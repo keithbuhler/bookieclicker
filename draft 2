@@ -1,3 +1,4 @@
+Let's make a game!
     name:Bookie Clicker 
     by:Buhler
     desc:In this writing game, you will hone your craft to become a world famous author. <//> Write page after page to fill your book -- and then become the world's most productive publishing powerhouse!
@@ -6,7 +7,7 @@
     version:1
 
 Settings
-    background:stuff/meadow.jpg
+    background:stuff/ghostwriter.jpg
     building cost increase:115%
     building cost refund:50%
     spritesheet:icons, 48 by 48, stuff/bunnyIcons.png
@@ -22,7 +23,7 @@ Buttons
         on click:anim icon wobble
         on click:yield 1 page
         on click:if (have goldenTouch and chance(1%)) yield 1 goldenPage
-        icon:stuff/bunny.png
+        icon:http://www.keithbuhler.com/images/book.jpg
         no text
         class:bigButton hasFlares
         icon class:shadowed
@@ -30,7 +31,7 @@ Buttons
         tooltip class:red
         
 Resources
-    *page|Pages
+    *page|pages
         name:Page|Pages
         desc:These are your pages. You can trade them for things. Your goal is to write as many pages and books as possible!
         icon:icons[0,0]
@@ -72,8 +73,8 @@ Buildings
         on click:anim glow
         
     *scribe|scribes
-        name:Slave scribe| Slave scribes
-        desc:A happy little scribe to write pages for you. A bit dim, but obedient.<//><b>Effect:</b><.>Produces 1 page every 10 seconds.
+        name:Scribe| Scribes
+        desc:A happy little scribe servant to write pages for you. A bit dim, but very obedient.<//><b>Effect:</b><.>Produces 1 page every 10 seconds.
         icon:icons[3,0]
         cost:15 pages
         on tick:yield 0.1 page
@@ -81,7 +82,7 @@ Buildings
     
     *monk|monks
         name:Monk |Monks
-        desc:A much more educated type of writer. Prays while scribbling.<//><b>Effect:</b><.>Produces 1 page every 2 seconds.
+        desc:A joyful monk to write pages. Much more educated, and just as obedient. Prays while scribbling.<//><b>Effect:</b><.>Produces 1 page every 2 seconds.
         icon:icons[3,1]
         cost:100 pages
         on tick:yield 0.5 pages
@@ -89,7 +90,7 @@ Buildings
     
     *grad|grads
         name:Graduate student|Graduate students
-        desc:A much more worldly but feverishly productive scribe. Writes without pay for years at a time.<//><b>Effect:</b><.>Produces 5 pages per second.
+        desc:A worldly but feverishly productive scribe. Less praying, but works for no pay. <//><b>Effect:</b><.>Produces 5 pages per second.
         icon:icons[3,2]
         cost:600 pages
         on tick:yield 5 pages
@@ -97,13 +98,13 @@ Buildings
     
     *author|authors
         name:author|authors
-        desc:A professional scribbler who writes with 'aplomb' (without using a thesaurus.)<//><b>Effect:</b><.>Produces 12 pages per second.
+        desc:A professional poet and enlightened literati who excels in exegesis and writes with 'aplomb' (without using a thesaurus.)<//><b>Effect:</b><.>Produces 12 pages per second.
         icon:icons[3,3]
         cost:4000 pages
         on tick:yield 12 pages
         req:4000 pages:earned
     
-    *ghostwriter|ghostwriter
+    *ghostwriter|ghostwriters
         name:ghostwriter|ghostwriters
         desc:An insanely productive savant who can toss of a book as soon as blow their nose.<//><b>Effect:</b><.>Produces 90 pages per second.
         icon:icons[3,4]
@@ -113,22 +114,15 @@ Buildings
     
     *room|rooms
         name:Writer's room|Writer's rooms
-        desc:Your writers are now team-building their own book series!<//><b>Effect:</b><.>Produces 300 pages per second.
+        desc:A whole group of fast-food consuming writers, team-building their own book series!<//><b>Effect:</b><.>Produces 300 pages per second.
         icon:icons[3,5]
         cost:200000 pages, 1 goldenPage
         on tick:yield 300 pages
-        req:200000 pages:earned and independenceDay
+        req:200000 pages:earned and independenceDay  
 
-
-
-
-
-Stopped here
-
-        
     *monkey|monkies
-        name:Rabbit city|Rabbit cities
-        desc:A bustling little city, populated with busy rabbits.<//><b>Effect:</b><.>Produces 1000 pages per second.
+        name:Rabbit monkey|Rabbit monkies
+        desc:A bustling little monkey, populated with busy rabbits.<//><b>Effect:</b><.>Produces 1000 pages per second.
         icon:icons[3,6]
         cost:3000000 pages, 4 goldenPages
         on tick:yield 1000 pages
@@ -238,8 +232,8 @@ Upgrades
         passive:multiply yield of pages by 1.05
         req:500000 pages:earned
         
-    *page
-        name:Page
+    *carrot
+        name:carrot
         desc:The quintessential rabbit food! Crunchy, orange, and perfect.<//><b>Effect:</b><.>pages/click x2<.>page production +10%
         icon:icons[1,0]
         cost:100000000 pages
@@ -254,66 +248,66 @@ Upgrades
         desc:Much less effort than drilling in stone! !<//><b>Effect:</b><.>scribe production x2<.>monk production x2<.>grad production x2
         icon:icons[2,0] icons[3,0]
         cost:1000 pages
-        passive:multiply yield of cage by 2
-        passive:multiply yield of hutch by 2
-        passive:multiply yield of coop by 2
-        req:(cages>=10 or hutches>=10 or coops>=10)
+        passive:multiply yield of scribe by 2
+        passive:multiply yield of monk by 2
+        passive:multiply yield of grad by 2
+        req:(scribes>=10 or monkies>=10 or grads>=10)
         
     *buildingUpgrade2
         name:Quill pen
         desc:Your pages can now flow from an Inkwell<//><b>Effect:</b><.>scribe production x2<.>monk production x2<.>grad production x2
         icon:icons[2,0] icons[3,1]
         cost:100000 pages
-        passive:multiply yield of cage by 2
-        passive:multiply yield of hutch by 2
-        passive:multiply yield of coop by 2
-        req:(cages>=50 or hutches>=50 or coops>=50)
+        passive:multiply yield of scribe by 2
+        passive:multiply yield of monk by 2
+        passive:multiply yield of grad by 2
+        req:(scribes>=50 or monkies>=50 or grads>=50)
         
     *buildingUpgrade3
         name:Shredded newspapers
         desc:You'd think they just poop on these, but they really enjoy reading the Sunday comics.<//><b>Effect:</b><.>scribe production x2<.>monk production x2<.>grad production x2
         icon:icons[2,0] icons[3,2]
         cost:5000000 pages
-        passive:multiply yield of cage by 2
-        passive:multiply yield of hutch by 2
-        passive:multiply yield of coop by 2
-        req:(cages>=100 or hutches>=100 or coops>=100)
+        passive:multiply yield of scribe by 2
+        passive:multiply yield of monk by 2
+        passive:multiply yield of grad by 2
+        req:(scribes>=100 or monkies>=100 or grads>=100)
         
     *buildingUpgrade4
         name:Pretty fences
         desc:Just the right size so your pages can peek through but not hop over!<//><b>Effect:</b><.>author production x2<.>ghostwriter production x2
         icon:icons[2,0] icons[3,3]
         cost:50000 pages
-        passive:multiply yield of pen by 2
-        passive:multiply yield of meadow by 2
-        req:(pens>=10 or meadows>=10)
+        passive:multiply yield of author by 2
+        passive:multiply yield of ghostwriter by 2
+        req:(authors>=10 or ghostwriters>=10)
         
     *buildingUpgrade5
         name:Bunny playground
         desc:If your pages are outside, they might as well get some exercise!<//><b>Effect:</b><.>author production x2<.>ghostwriter production x2
         icon:icons[2,0] icons[3,4]
         cost:5000000 pages
-        passive:multiply yield of pen by 2
-        passive:multiply yield of meadow by 2
-        req:(pens>=50 or meadows>=50)
+        passive:multiply yield of author by 2
+        passive:multiply yield of ghostwriter by 2
+        req:(authors>=50 or ghostwriters>=50)
         
     *buildingUpgrade6
         name:Bunny TVs
-        desc:Televisions that broadcast page cartoons, page sitcoms, and page news bulletins.<//><b>Effect:</b><.>room production x2<.>rabbit city production x2
+        desc:Televisions that broadcast page cartoons, page sitcoms, and page news bulletins.<//><b>Effect:</b><.>room production x2<.>rabbit monkey production x2
         icon:icons[2,0] icons[3,5]
         cost:1000000 pages
-        passive:multiply yield of village by 2
-        passive:multiply yield of city by 2
-        req:(villages>=10 or cities>=10)
+        passive:multiply yield of room by 2
+        passive:multiply yield of monkey by 2
+        req:(rooms>=10 or monkies>=10)
         
     *buildingUpgrade7
         name:Wee little page cars
-        desc:Your pages drive around in these. How nice!<//><b>Effect:</b><.>room production x2<.>rabbit city production x2
+        desc:Your pages drive around in these. How nice!<//><b>Effect:</b><.>room production x2<.>rabbit monkey production x2
         icon:icons[2,0] icons[3,6]
         cost:500000000 pages
-        passive:multiply yield of village by 2
-        passive:multiply yield of city by 2
-        req:(villages>=50 or cities>=50)
+        passive:multiply yield of room by 2
+        passive:multiply yield of monkey by 2
+        req:(rooms>=50 or monkies>=50)
         
     *buildingUpgrade8
         name:Soothing moon crystals
@@ -342,7 +336,7 @@ Upgrades
     
     *independenceDay
         name:Independence day
-        desc:Your pages are making their first step towards declaring their independence from the oppressive shackles of pens and cages.<//><b>Effect:</b><.>unlocks new buildings
+        desc:Your pages are making their first step towards declaring their independence from the oppressive shackles of pens and scribes.<//><b>Effect:</b><.>unlocks new buildings
         icon:icons[2,7]
         cost:10 goldenPages
         req:5 goldenPages:earned
@@ -413,17 +407,17 @@ Achievements
         req:100000 pages per second
         icon:icons[2,3] icons[0,4] icons[0,6]
         
-    *pageAchiev1
+    *goldenPageAchiev1
         name:Isn't it neat
         desc:Have <b>1</b> golden page.
         req:1 goldenPages
         icon:icons[0,1] icons[0,2]
-    *pageAchiev2
+    *goldenPageAchiev2
         name:All that glitters
         desc:Have <b>100</b> golden page.
         req:100 goldenPages
         icon:icons[0,1] icons[0,3]
-    *pageAchiev3
+    *goldenPageAchiev3
         name:Zero nutritional value
         desc:Have <b>1000</b> golden page.
         req:1000 goldenPages
@@ -434,4 +428,3 @@ Achievements
         desc:Complete building the <b>freedom fortress</b>.<//>This is it. You beat the game!
         req:100 fortress
         icon:icons[3,8] icons[0,4]
-       
